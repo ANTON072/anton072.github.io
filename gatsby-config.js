@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: 'anton072.github.io',
     author: 'Katsushi Ougi',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    description: 'The Blog written by Katsushi Ougi',
+    siteUrl: 'https://anton072.github.io/',
   },
   pathPrefix: '/gatsby-starter-blog',
   plugins: [
