@@ -1,0 +1,110 @@
+---
+title: Redux で複数の非同期通信を捌く方法
+date: "2018-04-11"
+---
+
+SPA を作っていると複数の API に同時に接続して、通信を待って何かをする、というケースが頻繁にあります。そういった場合、Redux ではどうするのか考えてみました。
+
+こういった場合、ミドルウェアには [redux-saga](https://github.com/redux-saga) を使うのが定石かもしれませんが、あの独特の記法がどうも好きになれないのと、処理が分散してコードが追いにくくて苦手なので、今回は [redux-thunk](https://github.com/gaearon/redux-thunk) の利用で検討してみます。
+
+サンプルのソースはこちら。
+https://github.com/ANTON072/redux-multiple-ajax-sample
+
+デモ
+https://anton072.github.io/redux-multiple-ajax-sample/
+
+View と Reducer は特に変わったことはやっていません。
+https://github.com/ANTON072/redux-multiple-ajax-sample/blob/master/src/App.js
+
+https://github.com/ANTON072/redux-multiple-ajax-sample/blob/master/src/index.js#L18
+
+```javascript
+const github = (state = initialState, action) => {
+  switch (action.type) {
+    case ActionTypes.FETCH_EXAMPLE_REQUEST:
+      return { ...state, loading: true };
+    case ActionTypes.FETCH_EXAMPLE_FAILURE:
+      return { ...state, loading: false };
+    case ActionTypes.FETCH_EXAMPLE_SUCCESS:
+      return { ...state, ...action.payload, loading: false };
+    default:
+      return state;
+  }
+};
+```
+
+工夫のポイントは Action Creator です。
+
+まず Action ですが、通信まわりは REQUEST / FAILURE / SUCCESS とステータスに応じて suffix を付けておきます。今回のネタには直接関係ないですが、suffix に定型句を付けておくと、ミドルウェアでの加工も簡単にできるので何かと便利です。視認性もいい。
+
+```javascript
+export const FETCH_EXAMPLE_REQUEST = 'FETCH_EXAMPLE_REQUEST';
+export const FETCH_EXAMPLE_FAILURE = 'FETCH_EXAMPLE_FAILURE';
+export const FETCH_EXAMPLE_SUCCESS = 'FETCH_EXAMPLE_SUCCESS';
+
+const AJAX_A_REQUEST = 'AJAX_A_REQUEST';
+const AJAX_A_FAILURE = 'AJAX_A_FAILURE';
+const AJAX_A_SUCCESS = 'AJAX_A_SUCCESS';
+
+const AJAX_B_REQUEST = 'AJAX_B_REQUEST';
+const AJAX_B_FAILURE = 'AJAX_B_FAILURE';
+const AJAX_B_SUCCESS = 'AJAX_B_SUCCESS';
+```
+
+各 API を叩く Action Creator を定義します。redux-thunk を使っているので、Promise で返すことができます。
+
+```javascript
+export function ajaxA() {
+  return function(dispatch) {
+    dispatch({ type: AJAX_A_REQUEST });
+    return fetch('https://api.github.com/')
+      .then(response => response.json())
+      .then(
+        json => dispatch({ type: AJAX_A_SUCCESS, payload: json }),
+        err => dispatch({ type: AJAX_A_FAILURE, payload: err })
+      );
+  };
+}
+
+export function ajaxB() {
+  return function(dispatch) {
+    dispatch({ type: AJAX_B_REQUEST });
+    return fetch('https://api.github.com/users/anton072')
+      .then(response => response.json())
+      .then(
+        json => dispatch({ type: AJAX_B_SUCCESS, payload: json }),
+        err => dispatch({ type: AJAX_B_FAILURE, payload: err })
+      );
+  };
+}
+```
+
+ajaxA と ajaxB をバンドルする Action Creator を定義します。
+
+```javascript
+export function exampleAjax() {
+  return function(dispatch) {
+    dispatch({ type: FETCH_EXAMPLE_REQUEST });
+    return Promise.all([dispatch(ajaxA()), dispatch(ajaxB())])
+      .then(responces => {
+        dispatch({
+          type: FETCH_EXAMPLE_SUCCESS,
+          payload: {
+            apis: responces[0].payload,
+            user: responces[1].payload
+          }
+        });
+      })
+      .catch(err => {
+        dispatch({
+          type: FETCH_EXAMPLE_FAILURE,
+          payload: err
+        });
+      });
+  };
+}
+```
+
+View からはこのバンドルされた関数を実行すれば、複数の非同期通信をまとめて実行することができます。
+
+async / await を使うともうちょいオシャレな書き方もできるんですかね。

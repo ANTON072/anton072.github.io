@@ -1,10 +1,9 @@
 import React from 'react'
+import styled from 'styled-components'
+import FaGithubSquare from 'react-icons/lib/fa/github-square'
+import FaTwitterSquare from 'react-icons/lib/fa/twitter-square'
+import FaFacebookSquare from 'react-icons/lib/fa/facebook-square'
 
-// Import typefaces
-import 'typeface-montserrat'
-import 'typeface-merriweather'
-
-import profilePic from './profile-pic.jpg'
 import { rhythm } from '../utils/typography'
 
 class Bio extends React.Component {
@@ -16,26 +15,58 @@ class Bio extends React.Component {
           marginBottom: rhythm(2.5),
         }}
       >
-        <img
-          src={profilePic}
-          alt={`Kyle Mathews`}
-          style={{
-            marginRight: rhythm(1 / 2),
-            marginBottom: 0,
-            width: rhythm(2),
-            height: rhythm(2),
-          }}
+        <Avatar
+          src="https://avatars.githubusercontent.com/anton072"
+          alt={`Katsushi Ougi`}
         />
-        <p>
-          Written by <strong>Kyle Mathews</strong> who lives and works in San
-          Francisco building useful things.{' '}
-          <a href="https://twitter.com/kylemathews">
-            You should follow him on Twitter
-          </a>
-        </p>
+        <div>
+          <div>
+            Written by <strong>Katsushi Ougi</strong>.
+          </div>
+          <Icons>
+            <li>
+              <a href="https://github.com/ANTON072" target="_blank">
+                <FaGithubSquare size={25} />
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/ANTON072" target="_blank">
+                <FaTwitterSquare size={25} />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/ANTON072" target="_blank">
+                <FaFacebookSquare size={25} />
+              </a>
+            </li>
+          </Icons>
+        </div>
       </div>
     )
   }
 }
 
 export default Bio
+
+const Icons = styled.ul`
+  list-style: none;
+  display: flex;
+  margin: 0 -5px;
+  li {
+    margin: 0 5px;
+  }
+  a {
+    box-shadow: none;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+`
+
+const Avatar = styled.img`
+  margin-right: ${rhythm(1 / 2)};
+  margin-bottom: 0;
+  width: ${rhythm(2)};
+  height: ${rhythm(2)};
+  border-radius: ${rhythm(1)};
+`
