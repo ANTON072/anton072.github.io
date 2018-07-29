@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
+import styled from 'styled-components'
 
 import Bio from '../components/Bio'
 import { rhythm, scale } from '../utils/typography'
@@ -16,6 +17,26 @@ class BlogPostTemplate extends React.Component {
       <div>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <h1>{post.frontmatter.title}</h1>
+        <Share>
+          <ul>
+            <li>
+              <a
+                href="http://b.hatena.ne.jp/entry/"
+                class="hatena-bookmark-button"
+                data-hatena-bookmark-layout="basic-label-counter"
+                data-hatena-bookmark-lang="ja"
+                title="このエントリーをはてなブックマークに追加"
+              >
+                <img
+                  src="https://b.st-hatena.com/images/entry-button/button-only@2x.png"
+                  alt="このエントリーをはてなブックマークに追加"
+                  width="20"
+                  height="20"
+                />
+              </a>
+            </li>
+          </ul>
+        </Share>
         <p
           style={{
             ...scale(-1 / 5),
@@ -44,20 +65,18 @@ class BlogPostTemplate extends React.Component {
           }}
         >
           <li>
-            {
-              previous &&
+            {previous && (
               <Link to={previous.fields.slug} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
-            }
+            )}
           </li>
           <li>
-            {
-              next &&
+            {next && (
               <Link to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
-            }
+            )}
           </li>
         </ul>
       </div>
@@ -85,3 +104,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+const Share = styled.div``
