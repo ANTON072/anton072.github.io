@@ -5,7 +5,6 @@ module.exports = {
     description: 'The Blog written by Katsushi Ougi',
     siteUrl: 'https://anton072.github.io/',
   },
-  pathPrefix: '/gatsby-starter-blog',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
