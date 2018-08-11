@@ -20,6 +20,8 @@ class Bio extends React.Component {
         <Avatar
           src="https://avatars.githubusercontent.com/anton072"
           alt={`Katsushi Ougi`}
+          width={56}
+          height={56}
         />
         <div>
           <div>

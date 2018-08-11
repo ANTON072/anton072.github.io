@@ -3,40 +3,27 @@ import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
 import styled from 'styled-components'
-
+import url from 'url'
 import Bio from '../components/Bio'
+import Share from '../components/Share'
+import SEO from '../components/SEO'
 import { rhythm, scale } from '../utils/typography'
+import { siteMetadata } from '../../gatsby-config'
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-    const { previous, next } = this.props.pathContext
+    const { previous, next, slug } = this.props.pathContext
+    const { frontmatter } = post
+    const postUrl = url.resolve(siteMetadata.siteUrl, slug)
 
     return (
       <div>
+        <div id="fb-root" />
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+        <SEO postNode={post} postUrl={postUrl} postSEO />
         <h1>{post.frontmatter.title}</h1>
-        <Share>
-          <ul>
-            <li>
-              <a
-                href="http://b.hatena.ne.jp/entry/"
-                class="hatena-bookmark-button"
-                data-hatena-bookmark-layout="basic-label-counter"
-                data-hatena-bookmark-lang="ja"
-                title="このエントリーをはてなブックマークに追加"
-              >
-                <img
-                  src="https://b.st-hatena.com/images/entry-button/button-only@2x.png"
-                  alt="このエントリーをはてなブックマークに追加"
-                  width="20"
-                  height="20"
-                />
-              </a>
-            </li>
-          </ul>
-        </Share>
         <p
           style={{
             ...scale(-1 / 5),
@@ -48,11 +35,15 @@ class BlogPostTemplate extends React.Component {
           {post.frontmatter.date}
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        <Share title={frontmatter.title} link={postUrl} />
+
         <hr
           style={{
             marginBottom: rhythm(1),
           }}
         />
+
         <Bio />
 
         <ul
@@ -100,9 +91,8 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        description
       }
     }
   }
 `
-
-const Share = styled.div``
