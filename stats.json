@@ -1,44 +1,56 @@
 {
   "assetsByChunkName": {
     "path---entry-2018-04-11": [
-      "path---entry-2018-04-11-ae6cb0df7c646cd0efe5.js",
-      "path---entry-2018-04-11-ae6cb0df7c646cd0efe5.js.map"
+      "path---entry-2018-04-11-3d721df261f20a59fd45.js",
+      "path---entry-2018-04-11-3d721df261f20a59fd45.js.map"
     ],
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-7fd4a2ecbbbfc7154ce4.js",
-      "component---src-pages-index-js-7fd4a2ecbbbfc7154ce4.js.map"
+      "component---src-pages-index-js-2b9417f1b85cb638adff.js",
+      "component---src-pages-index-js-2b9417f1b85cb638adff.js.map"
+    ],
+    "component---src-templates-tags-js": [
+      "component---src-templates-tags-js-5fa9215134ac58a22963.js",
+      "component---src-templates-tags-js-5fa9215134ac58a22963.js.map"
     ],
     "path---": [
       "path----557518bd178906f8d58a.js",
       "path----557518bd178906f8d58a.js.map"
+    ],
+    "path---tags-react": [
+      "path---tags-react-e598ba0c25c002140159.js",
+      "path---tags-react-e598ba0c25c002140159.js.map"
     ],
     "component---node-modules-gatsby-plugin-offline-app-shell-js": [
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js",
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "component---src-templates-blog-post-js": [
-      "component---src-templates-blog-post-js-52701935813ad72449f5.js",
-      "component---src-templates-blog-post-js-52701935813ad72449f5.js.map"
+      "component---src-templates-blog-post-js-ede9e8cdaa3da8e48d26.js",
+      "component---src-templates-blog-post-js-ede9e8cdaa3da8e48d26.js.map"
     ],
     "path---entry-2018-03-12": [
-      "path---entry-2018-03-12-2d1f3a31bb7de840c7a8.js",
-      "path---entry-2018-03-12-2d1f3a31bb7de840c7a8.js.map"
+      "path---entry-2018-03-12-cba95f0cbe1958c25f49.js",
+      "path---entry-2018-03-12-cba95f0cbe1958c25f49.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-cce813ca323e98d1357b.js",
-      "component---src-layouts-index-js-cce813ca323e98d1357b.js.map"
+      "component---src-layouts-index-js-bcf6375df1ee2800ce5c.js",
+      "component---src-layouts-index-js-bcf6375df1ee2800ce5c.js.map"
     ],
     "path---index": [
       "path---index-b62b9252249b615ad1b8.js",
       "path---index-b62b9252249b615ad1b8.js.map"
+    ],
+    "path---tags-redux": [
+      "path---tags-redux-1626ae4f3c2e994df99d.js",
+      "path---tags-redux-1626ae4f3c2e994df99d.js.map"
     ],
     "component---src-pages-404-js": [
       "component---src-pages-404-js-4503918ea3a16cfcdb75.js",
       "component---src-pages-404-js-4503918ea3a16cfcdb75.js.map"
     ],
     "commons": [
-      "commons-0146967d9cfc5751d6d2.js",
-      "commons-0146967d9cfc5751d6d2.js.map"
+      "commons-db2081ae9547510b9bb1.js",
+      "commons-db2081ae9547510b9bb1.js.map"
     ],
     "path---404-html": [
       "path---404-html-a0e39f21c11f6a62c5ab.js",
@@ -48,10 +60,14 @@
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js",
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
     ],
+    "path---tags-java-script": [
+      "path---tags-java-script-74a6ebad92accd0594f2.js",
+      "path---tags-java-script-74a6ebad92accd0594f2.js.map"
+    ],
     "app": [
-      "app-eace8adbc49608915492.js",
+      "app-e5ea75b57d719fa6f4c7.js",
       "build-js-styles.css",
-      "app-eace8adbc49608915492.js.map",
+      "app-e5ea75b57d719fa6f4c7.js.map",
       "build-js-styles.css.map"
     ],
     "path---404": [
