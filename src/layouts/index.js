@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import Link from 'gatsby-link'
 
-import GithubRibbon from '../components/GithubRibbon'
 import { rhythm, scale } from '../utils/typography'
 import './prism-onedark.css'
 
@@ -39,7 +38,6 @@ class Template extends React.Component {
     }
     return (
       <div>
-        <GithubRibbon />
         <div
           style={{
             marginLeft: 'auto',

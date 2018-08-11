@@ -25,7 +25,10 @@ class Bio extends React.Component {
         />
         <div>
           <div>
-            Written by <strong>Katsushi Ougi</strong>.
+            Written by <strong>Katsushi Ougi</strong>. Technical Director @{' '}
+            <a href="https://www.to-r.net/" target="_blank">
+              to-R Inc.
+            </a>
           </div>
           <Icons>
             <li>
@@ -65,9 +68,9 @@ export default Bio
 const Icons = styled.ul`
   list-style: none;
   display: flex;
-  margin: 0 -5px;
+  margin: 0 -2px;
   li {
-    margin: 0 5px;
+    margin: 0 2px;
   }
   a {
     box-shadow: none;

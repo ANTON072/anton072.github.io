@@ -9,6 +9,7 @@ import Share from '../components/Share'
 import SEO from '../components/SEO'
 import { rhythm, scale } from '../utils/typography'
 import { siteMetadata } from '../../gatsby-config'
+import _ from 'lodash'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -31,12 +32,20 @@ class BlogPostTemplate extends React.Component {
           postSEO
         />
         <h1>{post.frontmatter.title}</h1>
+        <Tags>
+          {frontmatter.tags.map((t, idx) => (
+            <li key={t}>
+              <Link key={t} to={`/tags/${_.kebabCase(t)}`}>
+                {t}
+              </Link>
+            </li>
+          ))}
+        </Tags>
         <p
           style={{
             ...scale(-1 / 5),
             display: 'block',
             marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
           }}
         >
           {post.frontmatter.date}
@@ -99,7 +108,25 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
+  }
+`
+
+const Tags = styled.ul`
+  list-style: none;
+  display: flex;
+  margin: 0 -5px;
+  li {
+    margin: 0 5px;
+  }
+  a {
+    display: block;
+    padding: 0 5px;
+    box-shadow: none;
+    font-size: 12px;
+    background: #007acc;
+    color: #fff;
   }
 `

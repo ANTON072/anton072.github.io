@@ -8,11 +8,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post.js')
+    const tagPage = path.resolve('./src/templates/tags.js')
     resolve(
       graphql(
         `
           {
-            allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+            allMarkdownRemark(
+              sort: { fields: [frontmatter___date], order: DESC }
+              limit: 1000
+            ) {
               edges {
                 node {
                   fields {
@@ -20,6 +24,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                   }
                   frontmatter {
                     title
+                    tags
                   }
                 }
               }
@@ -33,11 +38,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
 
         // Create blog posts pages.
-        const posts = result.data.allMarkdownRemark.edges;
+        const posts = result.data.allMarkdownRemark.edges
+        const tags = new Set()
 
         _.each(posts, (post, index) => {
-          const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-          const next = index === 0 ? null : posts[index - 1].node;
+          const previous =
+            index === posts.length - 1 ? null : posts[index + 1].node
+          const next = index === 0 ? null : posts[index - 1].node
 
           createPage({
             path: post.node.fields.slug,
@@ -48,7 +55,18 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               next,
             },
           })
+          post.node.frontmatter.tags.forEach(tags.add.bind(tags))
         })
+
+        Array.from(tags).forEach(tag =>
+          createPage({
+            path: `/tags/${_.kebabCase(tag)}/`,
+            component: tagPage,
+            context: {
+              tag,
+            },
+          })
+        )
       })
     )
   })
