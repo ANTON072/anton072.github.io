@@ -9,3 +9,6 @@ Created by [gatsbyjs/gatsby\-starter\-blog: Gatsby starter for creating a blog](
 
 ## Deploy
 `yarn deploy`
+
+## Generate OG:IMAGE
+`node ogimage.js src/pages/entry/:filename.md`

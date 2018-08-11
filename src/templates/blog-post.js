@@ -17,12 +17,19 @@ class BlogPostTemplate extends React.Component {
     const { previous, next, slug } = this.props.pathContext
     const { frontmatter } = post
     const postUrl = url.resolve(siteMetadata.siteUrl, slug)
+    const siteUrl = siteMetadata.siteUrl
 
     return (
       <div>
         <div id="fb-root" />
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-        <SEO postNode={post} postUrl={postUrl} postSEO />
+        <SEO
+          postNode={post}
+          siteUrl={siteUrl}
+          postUrl={postUrl}
+          slug={slug}
+          postSEO
+        />
         <h1>{post.frontmatter.title}</h1>
         <p
           style={{

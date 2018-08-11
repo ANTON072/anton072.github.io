@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>OG Image Generator</title>
+  <link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+    }
+    html {
+      color: #000;
+      font-family: '游ゴシック体', sans-serif;
+      font-weight: bold;
+    }
+
+    body {
+      margin: 0;
+      padding: 35px 35px 0;
+    }
+
+    h1 {
+      font-weight: bold;
+      line-height: 1.4;
+      margin: 0;
+      color:#FFF;
+    }
+
+    address {
+      font-style: normal;
+      font-size: 5vh;
+      text-align: center;
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="title"></h1>
+  <address>anton072.github.io</address>
+  <script>
+    function newGradient() {
+      var randomColor1 = "#" + Math.floor(Math.random() * 16777215).toString(16),
+        randomColor2 = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      return 'radial-gradient(at top left, ' + randomColor1 + ', ' + randomColor2 + ')'
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      document.body.style.background = newGradient()
+      const injectedProps = await getInjectedProps()
+      const title = document.getElementById('title')
+      title.innerHTML = injectedProps.title
+      let fontSize = 100 // px dimension
+      for (; ;) {
+        title.style.fontSize = fontSize + 'px'
+        if (document.body.clientHeight <= window.innerHeight) {
+          break
+        }
+        fontSize -= 1
+      }
+    })
+  </script>
+</body>
+
+</html>
