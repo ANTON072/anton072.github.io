@@ -12,3 +12,6 @@ Created by [gatsbyjs/gatsby\-starter\-blog: Gatsby starter for creating a blog](
 
 ## Generate OG:IMAGE
 `node ogimage.js src/pages/entry/:filename.md`
+
+## Images
+[Image and Video Upload, Storage, Optimization and CDN](https://cloudinary.com/)

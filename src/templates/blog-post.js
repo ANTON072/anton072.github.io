@@ -23,7 +23,9 @@ class BlogPostTemplate extends React.Component {
     return (
       <div>
         <div id="fb-root" />
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`}>
+          <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js" />
+        </Helmet>
         <SEO
           postNode={post}
           siteUrl={siteUrl}
