@@ -21,12 +21,12 @@
       "path---tags-node-297403e0bf3e6b99c29c.js.map"
     ],
     "path---entry-2018-08-11": [
-      "path---entry-2018-08-11-2d98904c2f20cac81107.js",
-      "path---entry-2018-08-11-2d98904c2f20cac81107.js.map"
+      "path---entry-2018-08-11-fd45593db23a5d4a7a7b.js",
+      "path---entry-2018-08-11-fd45593db23a5d4a7a7b.js.map"
     ],
     "path---tags-react": [
-      "path---tags-react-e598ba0c25c002140159.js",
-      "path---tags-react-e598ba0c25c002140159.js.map"
+      "path---tags-react-e95fc4362e705302b525.js",
+      "path---tags-react-e95fc4362e705302b525.js.map"
     ],
     "component---node-modules-gatsby-plugin-offline-app-shell-js": [
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js",
@@ -45,8 +45,8 @@
       "component---src-layouts-index-js-bcf6375df1ee2800ce5c.js.map"
     ],
     "path---index": [
-      "path---index-86064103d6c145cb061c.js",
-      "path---index-86064103d6c145cb061c.js.map"
+      "path---index-94c04bddc6ffca0d4bd0.js",
+      "path---index-94c04bddc6ffca0d4bd0.js.map"
     ],
     "path---tags-redux": [
       "path---tags-redux-1626ae4f3c2e994df99d.js",
@@ -69,18 +69,26 @@
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---tags-java-script": [
-      "path---tags-java-script-7c5595ebecfd1c1ff600.js",
-      "path---tags-java-script-7c5595ebecfd1c1ff600.js.map"
+      "path---tags-java-script-c2e9550567e716f50896.js",
+      "path---tags-java-script-c2e9550567e716f50896.js.map"
+    ],
+    "path---entry-2018-08-13": [
+      "path---entry-2018-08-13-263b97ff66e6acb2b351.js",
+      "path---entry-2018-08-13-263b97ff66e6acb2b351.js.map"
     ],
     "app": [
-      "app-9c30da5ccf3ff9ba46b0.js",
+      "app-b76bf5c7067bece2a260.js",
       "build-js-styles.css",
-      "app-9c30da5ccf3ff9ba46b0.js.map",
+      "app-b76bf5c7067bece2a260.js.map",
       "build-js-styles.css.map"
     ],
     "path---404": [
       "path---404-a0e39f21c11f6a62c5ab.js",
       "path---404-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---tags-firabase": [
+      "path---tags-firabase-c4c06576536c135926cd.js",
+      "path---tags-firabase-c4c06576536c135926cd.js.map"
     ]
   }
 }
