@@ -1,3 +1,11 @@
 {
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "css.validate": false,
+  "[css]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  },
+  "stylelint.configFile": ".stylelintrc.json",
+  "stylelint.validate": ["css"]
 }

@@ -1,8 +1,8 @@
 .l-wrapper {
-  max-width: 40rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--s1);
-  padding-right: var(--s1);
   box-sizing: content-box;
+  max-width: 40rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--s1);
+  padding-left: var(--s1);
 }
