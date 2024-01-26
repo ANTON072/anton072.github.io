@@ -1,0 +1,81 @@
+/* See: https://piccalil.li/blog/a-more-modern-css-reset/ */
+/* ====================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* フォントサイズの拡張を防ぐ */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+body {
+  min-height: 100dvh;
+  line-height: 1.5;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* 見出しのテキスト折り返しのバランス */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* クラスを持たない要素は、デフォルトのスタイルを持つ */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* rows属性のないtextareasが小さくならないようにする */
+textarea:not([rows]) {
+  min-height: 10em;
+}
