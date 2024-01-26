@@ -2,9 +2,15 @@
   "name": "anton072.github.io",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "stylelint": "stylelint \"./src/**/*.css\" --fix",
+    "format": "prettier --write \"./src/**/*\""
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "prettier": "^3.2.4",
+    "stylelint": "^16.2.0",
+    "stylelint-config-property-sort-order-smacss": "^10.0.0",
+    "stylelint-config-standard": "^36.0.0"
   }
 }

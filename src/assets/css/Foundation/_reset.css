@@ -1,5 +1,4 @@
 /* See: https://piccalil.li/blog/a-more-modern-css-reset/ */
-/* ====================================================================== */
 
 *,
 *::before,
@@ -9,8 +8,10 @@
 
 /* フォントサイズの拡張を防ぐ */
 html {
+  /* stylelint-disable property-no-vendor-prefix */
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
+  /* stylelint-enable property-no-vendor-prefix */
   text-size-adjust: none;
 }
 
@@ -34,8 +35,8 @@ ol[role="list"] {
 
 body {
   min-height: 100dvh;
-  line-height: 1.5;
   margin: 0;
+  line-height: 1.7;
 }
 
 h1,
@@ -59,13 +60,14 @@ h4 {
 /* クラスを持たない要素は、デフォルトのスタイルを持つ */
 a:not([class]) {
   text-decoration-skip-ink: auto;
+  /* stylelint-disable-next-line value-keyword-case */
   color: currentColor;
 }
 
 img,
 picture {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 input,
